@@ -1,0 +1,122 @@
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('buttons.css');
+@import url('nav-icon.css');
+@import url('mobile-nav.css');
+@import url('navbar.css');
+@import url('index.css');
+@import url('catalog.css');
+@import url('reviews.css');
+@import url('blog.css');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Shantell Sans', cursive;
+    color: rgba(17, 68, 85, 1);
+}
+
+.none {
+    display: none !important;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 32px;
+    margin: 0 auto;
+}
+
+.container--header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header__content {
+    background-color: #fdfafa9d;
+
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 32px;
+    align-items: center;
+    text-align: center;
+}
+
+.header_nav_new {
+    padding: 31px 0 65px;
+    height: 30px;
+    background-color: rgb(115, 204, 240);
+    margin-bottom: 50px;
+} 
+
+
+.contact-form {
+    background-color: #F0F5ff;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form img {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    display: block;
+}
+
+.contact-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 10px;
+}
+
+
+.contact-form label {
+    font-size: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+
+.contact-form button {
+    background-color: #4C9CE9;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #336699;
+}
+
+.main {
+    padding: 80px 0;
+    display: grid;
+    grid-gap: 120px;
+}
+
+.section_detail {
+    margin-top: 10px;
+}

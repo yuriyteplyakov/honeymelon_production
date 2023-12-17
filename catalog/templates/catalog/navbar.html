@@ -1,0 +1,47 @@
+{% load static %}
+
+
+    <div class="container container--header">
+        <nav class="nav">
+            <a href="/" class="logo">Honeymelon handmade jewerly</a>
+            <ul class="nav-list">
+                <li class="nav-list__item">
+                    <a href="/" class="nav-list__link">Главная</a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="/catalog/catalog-list/" class="nav-list__link">Каталог</a>
+                </li>
+                
+                
+                <li class="nav-list__item">
+                    <a href="{% url 'cart:cart_detail' %}" class="nav-list__link">Корзина
+                        {% with total_items=cart|length %}
+                    {% if cart|length > 0 %} ({{ total_items }}){% endif %}
+                    {% endwith %}
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="/gallery/" class="nav-list__link">Отзывы</a> <!--в избранном в тг анимация модального окна для регистрации-->
+                </li>
+            </ul>
+            <button class="mobile-nav-btn">
+                <div class="nav-icon"></div>
+            </button>
+        </nav>
+    
+
+
+<div class="mobile-nav-fade"></div>
+    <div class="mobile-nav">
+        <ul class="mobile-nav__list">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/catalog/catalog-list/">Каталог</a></li>
+            <li><a href="/gallery/">Отзывы</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Партнеры</a></li>
+            <li><a href="#">Обратная связь</a></li>
+            <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
+            <li><a href="#">Войти</a></li>
+            
+        </ul>
+    </div>

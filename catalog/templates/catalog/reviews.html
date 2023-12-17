@@ -1,0 +1,34 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+<header class="header-catalog">
+    {% block navigation %}
+    {% include 'catalog/navbar.html' %}
+    {% endblock %}
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="title-1">Отзывы из социальных сетей</h2>
+            </div>
+            <div class="gallery">
+                {% for review in reviews %}
+                    <article class="card">
+                        
+                        <a href="{{ review.image.url }}" data-fancybox="gallery">
+                            <img src="{{ review.image.url }}" alt="{{ review.image.name }}"/>
+                        </a>
+                        
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

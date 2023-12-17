@@ -1,0 +1,185 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block title %}Honeymelon handmade jewerly{% endblock %}
+
+{% block content %}
+
+
+<header class="header-index">
+{% block navigation %}
+{% include 'catalog/navbar.html' %}
+
+<div class="header__content_2">
+    
+        <div class="container">
+            <div class="about-us">
+                <div class="about-us__desc">
+                    
+                    <p class="about-us__text">Привет, Я Маша! Рада приветствовать тебя в своем магазине.<br/> С удовольствием представляю тебе мои уникальные украшения, созданные с любовью из сухоцветов, камней, бисера и не только!</p>
+                    
+                </div>
+
+                <img src="{% static 'img\IMG_0122.JPG' %}" alt="" class="about-us__img">
+            </div>
+        </div>
+    
+    
+</div>
+
+</header>
+
+
+<div class="container">
+<!--доработать цвет текста и отступы + адаптив скопировать-->
+<section class="case-studies">
+    <div class="container-right">
+        <div class="case-studies_title section__header">
+            <h2 class="title-1">Примеры работ</h2>
+            <a href="/catalog/catalog-list/order/" class="button button-more">Смотреть
+                <img src="{% static 'img\arrow_blue.png' %}" alt="arrow"></a>
+        </div>
+        <div class="case-studies_text text">
+            <p>Здесь собраны украшения, которых нет в наличии.<br/>(Возможен повтор по индивидуальному заказу)</p>
+        </div>
+    
+
+    
+        <div class="slider">
+            <div class="owl-carousel owl-theme">
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Кулоны</h3>
+                    <!--вручную по категориям сделать-->
+                    <a href="catalog/cthmu/order/" class="catalog_pod_zakaz"><img class="slide_img" src="{% static 'img\slider\pendant.jpg' %}" alt="01"></a>
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Серьги</h3>
+                    <img class="slide_img" src="{% static 'img\slider\earrings.JPG' %}" alt="02">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Кольца</h3>
+                    <img class="slide_img" src="{% static 'img\slider\rings.JPG' %}" alt="03">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Браслеты</h3>
+                    <img class="slide_img" src="{% static 'img\slider\wristband.JPG' %}" alt="04">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Браслеты</h3>
+                    <img class="slide_img" src="{% static 'img\slider\wristband.JPG' %}" alt="04">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Браслеты</h3>
+                    <img class="slide_img" src="{% static 'img\slider\wristband.JPG' %}" alt="04">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Браслеты</h3>
+                    <img class="slide_img" src="{% static 'img\slider\wristband.JPG' %}" alt="04">
+                </div>
+                <div class="slider_item slide">
+                    <h3 class="slide_title">Браслеты</h3>
+                    <img class="slide_img" src="{% static 'img\slider\wristband.JPG' %}" alt="04">
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--END Секция с примерами работ-->
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__row">
+            <div class="footer__copyright">
+                <a href="#!" class="footer__logo">Honeymelon handmade jewerly</a>
+                <p class="footer__text"><a class="footer__nav-link" href="https://ru.freepik.com/free-vector/cloud-background-pastel-paper-cut-style-vector_18220838.htm#query=%D1%84%D0%BE%D0%BD%20%D0%BD%D0%B5%D0%B1%D0%BE&position=19&from_view=keyword&track=ais">Изображение от rawpixel.com</a> на Freepik</br>
+                    <a href="https://www.flaticon.com/ru/free-icons/-" title="формы и символы иконки">Формы и символы иконки от riajulislam - Flaticon</a></p>
+                <ul class="footer__socials">
+                    <li class="footer__socials-item">
+                        <a href="https://t.me/EwmAFtx6tHFiYWJi" class="footer__socials-link">
+                            <img src="{% static 'img\socials\telegram-svgrepo-com.svg' %}" alt="telegram">
+                        </a>
+                    </li>
+                    <li class="footer__socials-item">
+                        <a href="https://vk.com/musy2001" class="footer__socials-link">
+                            <img src="{% static 'img\socials\vk.svg' %}" alt="vk">
+                        </a>
+                    </li>
+                    <li class="footer__socials-item">
+                        <a href="https://instagram.com/honeymelon_handmade_jewerly?igshid=MXF5eDE2bXgzdWUxbQ==" class="footer__socials-link">
+                            <img src="{% static 'img\socials\instagram.svg' %}" alt="inst">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__nav-wrapper">
+                <div class="footer__nav">
+                    <h3 class="footer__nav-title">Меню</h3>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item">
+                            <a href="/" class="footer__nav-link">Главная</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a href="/catalog/catalog-list/" class="footer__nav-link">Каталог</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a href="{% url 'cart:cart_detail' %}" class="footer__nav-link">Корзина</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a href="/gallery/" class="footer__nav-link">Отзывы</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__nav">
+                    <h3 class="footer__nav-title">Координаты</h3>
+
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item">
+                            <a href="#!" class="footer__nav-link">Мои</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a href="#!" class="footer__nav-link">Партнеры</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a href="#!" class="footer__nav-link">Сотрудничество</a>
+                        </li>
+                        
+                        <li class="footer__nav-item">
+                            <a href="" class="footer__nav-link">Блог % url 'user-posts-list' user %</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+
+            <div class="footer__subscribe">
+                <div class="footer_subscribe-title">Для обсуждения заказа, оставь свой email.</div>
+                <form action="" class="subscribe">
+                    <div class="subscribe__input-wrapper">
+                        <input type="email" class="subscribe__input" required>
+                        <label for="" class="subscribe__label">Твой email</label>
+                        
+                    </div>
+                    
+                    <div class="subscribe__btn-wrapper">
+                        <button class="button button-more">
+                            Отправить
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+{% endblock %}
+
+{% endblock %}

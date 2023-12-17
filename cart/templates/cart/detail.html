@@ -1,0 +1,56 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+ 
+{% block title %}
+    Корзина товаров
+{% endblock %}
+ 
+{% block content %}
+
+
+
+    
+    
+
+    <div class="modal">
+        <header class="header-catalog">
+            {% block navigation %}
+            {% include 'catalog/navbar.html' %}
+            {% endblock %}
+            </header>
+            <div class="container">
+            <h2 class="title-1">Твоя корзина</h2>
+            <div class="micro_navbar">
+                <a href="/catalog/catalog-list/"><button class="detail_catalog">Вернуться в каталог</button></a>
+            </div>
+        
+        <div class="modal-content">
+            {% for item in cart %}
+            {% with product=item.product %}
+            <div class="product-favorites">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="
+                            {% if product.image %}{{ product.image.url }}{% endif %}">
+                </a>
+                <h3>{{ product.name }}</h3>
+                <p class="price-favorites">{{ item.price }} р.</p>
+                <a href="{% url 'cart:cart_remove' product.id %}">Удалить</a>
+                <td>
+                    <form action="{% url 'cart:cart_add' product.id %}"
+                          method="post">
+                        {{ item.update_quantity_form.quantity }}
+                        {{ item.update_quantity_form.update }}
+                        
+                        {% csrf_token %}
+                    </form>
+                </td>
+            </div>
+            {% endwith %}
+        {% endfor %}
+
+        <td class="num">Итого: {{ cart.get_total_price }} р.</td>
+        <a href="{% url 'orders:order_create' %}" ><button class="close">Заказ</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,70 @@
+{% extends 'catalog/base.html' %}
+
+{% load static %}
+
+
+{% block content_catalog %}
+<header class="header-catalog">
+    {% block navigation %}
+    {% include 'catalog/navbar.html' %}
+    {% endblock %}
+    </header>
+<section class="section-catalog">
+    <div class="container-catalog">
+        <div class="nav_cat">
+        <button id="sidebar" class="toggle-btn">Категории <img src="{% static 'img\arrow-right-form.svg' %}" class="arrow-icon"></i></button>
+        <div class="sidebar">
+            
+            <ul class="categories">
+                <li>
+                    <a href="{% url 'catalog:product_list' %}">Все категории</a>
+                </li>
+                {% for c in categories %}
+                    <li>
+                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    </li>
+                {% endfor %}
+            
+
+            <li class="line_cart">
+                {% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                        
+                        <a href="{% url 'cart:cart_detail' %}">
+                            В корзине: {{ total_items }},</br>
+                            Сумма: {{ cart.get_total_price }}р.
+                        </a>
+                    </li>
+                    {% else %}
+                        <li>Корзина пуста :(</li>
+                    {% endif %}
+                {% endwith %}
+                    
+                </ul>
+        </div>
+    </div>
+        <div class="catalog">
+            {% for product in products %}
+            <div class="product">
+               
+                    <img src="{{ product.image.url }}" alt="Product 1">
+                    
+                
+                <h4>{% if product %}{{ product.name }}{% endif %}</h4>
+            <footer class="card__footer">
+                <p>{{ product.price }} р.</p>
+                <p>В наличии: {{ product.stock }}</p>
+                
+            </footer>
+            <div class="detail_catalog_date">
+                <a href="{{ product.get_absolute_url }}"><button class="detail_catalog">Подробнее</button></a>
+                
+                <p>{{ product.created|date:'d.m.y' }}г.</p>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</section>
+{% endblock %}

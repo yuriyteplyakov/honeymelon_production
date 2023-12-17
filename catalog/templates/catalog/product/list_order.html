@@ -1,0 +1,52 @@
+{% extends 'catalog/base.html' %}
+
+{% load static %}
+
+
+{% block content_catalog %}
+<header class="header-catalog">
+    {% block navigation %}
+    {% include 'catalog/navbar.html' %}
+    {% endblock %}
+    </header>
+<section class="section">
+    <div class="container-catalog">
+        <div class="nav_cat">
+            <button id="sidebar" class="toggle-btn">Категории <img src="{% static 'img\icons\arrow-right-form.svg' %}" class="arrow-icon"></i></button>
+            <div class="sidebar">
+                
+                <ul class="categories">
+                    <li>
+                        <a href="{% url 'catalog:product_list_order' %}">Все категории</a>
+                    </li>
+                    {% for c in categories %}
+                        <li>
+                            <a href="{{ c.get_absolute_url_order }}">{{ c.name }}</a>
+                        </li>
+                    {% endfor %}
+                        
+                    </ul>
+            </div>
+        </div>
+        <div class="catalog">
+            {% for product in products %}
+            
+            <div class="product">
+               
+                    <img src="{{ product.image.url }}" alt="Product 1">
+                    
+                
+                <h4>{% if product %}{{ product.name }}{% endif %}</h4>
+            <footer class="card__footer">
+                <p>{{ product.price }} р.</p>
+                <div class="card__rating">
+                    <img src="{% static 'img/heart.png' %}" alt="heart">
+                </div>
+            </footer>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
