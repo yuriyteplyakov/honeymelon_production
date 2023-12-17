@@ -14,9 +14,10 @@ def order_product(request):
             order.save()
             for item in cart:
                 OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
-                # Очищаем корзину
+                # удаляем купленные товары
                 item['product'].available = False
                 item['product'].save()
+                # Очищаем корзину
             cart.clear()
             message = f'Новый заказ: {order}'
             send_mail(
